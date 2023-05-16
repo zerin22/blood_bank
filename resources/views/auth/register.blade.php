@@ -25,6 +25,9 @@
             border-radius: 20px !important;
             background-color: white !important;
         }
+        .radio__margin{
+            margin-left:5px !important;
+        }
     </style>
 
   </head>
@@ -131,17 +134,17 @@
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Gender</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 d-flex">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="male">
+                                    <input class="form-check-input radio__margin" type="radio" name="gender" value="male">
                                     <label class="form-check-label">Male</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="female">
+                                    <input class="form-check-input radio__margin" type="radio" name="gender" value="female">
                                     <label class="form-check-label">Female</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="other">
+                                    <input class="form-check-input radio__margin" type="radio" name="gender" value="other">
                                     <label class="form-check-label">Other</label>
                                   </div>
                             </div>
@@ -155,8 +158,7 @@
                                     class="form-control form-control border-left-0"
                                     id="exampleInputPassword"
                                     placeholder="Password"
-                                    name="password"
-                                    required autocomplete="current-password"
+                                    name="password" autocomplete="current-password"
                                 />
                             </div>
                             @error('password')
