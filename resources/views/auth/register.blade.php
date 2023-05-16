@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>APIX Login</title>
-    <!-- plugins:css -->
+    <title>Register</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
     <link rel="stylesheet" href="{{ asset('backend') }}/vendors/base/vendor.bundle.base.css" />
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('backend') }}/css/style.css" />
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('backend') }}/images/favicon.png" />
@@ -25,6 +19,11 @@
     <style>
         input{
             border-radius: 20px !important;
+        }
+        .rounded-option {
+            padding: 10px !important;
+            border-radius: 20px !important;
+            background-color: white !important;
         }
     </style>
 
@@ -42,65 +41,61 @@
                     <form class="pt-3"method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail">Name</label>
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Registered As</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="role" style="border-radius: 20px">
+                                    <option value="user" class="rounded-option">User</option>
+                                    <option value="hospital" class="rounded-option">Hospital</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
                                 <input
                                     type="text"
                                     class="form-control form-control border-left-0"
-                                    id="exampleInputEmail"
                                     placeholder="Name"
                                     name="name" :value="old('name')"
                                 />
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail">Email</label>
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
                                 <input
                                     type="email"
                                     class="form-control form-control border-left-0"
-                                    id="exampleInputEmail"
                                     placeholder="Email"
                                     name="email" :value="old('email')"
                                 />
                             </div>
                             @error('email')
-                                <span class="alert-danger" >
+                                <span class="text-danger" >
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail">NID</label>
-                            <div class="input-group">
-                                <input
-                                    type="text"
-                                    class="form-control form-control border-left-0"
-                                    id="exampleInputEmail"
-                                    placeholder="NID"
-                                    name="nid" :value="old('nid')"
-                                />
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>Age</label>
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-10">
                                 <input
                                     type="number"
-                                    class="form-control form-control border-left-0" id="exampleInputEmail"
+                                    class="form-control form-control border-left-0"
                                     placeholder="Your Age"
                                     name="age" :value="old('age')"
                                 />
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label >Phone</label>
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Phone</label>
+                            <div class="col-sm-10">
                                 <input
                                     type="text"
                                     class="form-control form-control border-left-0"
@@ -122,27 +117,39 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>Gender</label>
-                            <div class="">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">NID</label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    class="form-control form-control border-left-0"
+                                    placeholder="NID"
+                                    name="nid" :value="old('nid')"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Gender</label>
+                            <div class="col-sm-10">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="male">
-                                    <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="male">
+                                    <label class="form-check-label">Male</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="female">
-                                    <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="female">
+                                    <label class="form-check-label">Female</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="other" >
-                                    <label class="form-check-label" for="inlineCheckbox3">Other</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="other">
+                                    <label class="form-check-label">Other</label>
                                   </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword">Password</label>
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
                                 <input
                                     type="password"
                                     class="form-control form-control border-left-0"
@@ -152,22 +159,34 @@
                                     required autocomplete="current-password"
                                 />
                             </div>
+                            @error('password')
+                                <span class="text-danger" >
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword">Confirm Password</label>
-                            <div class="input-group">
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="col-sm-10">
                                 <input
                                     type="password"
                                     class="form-control form-control border-left-0"
                                     id="exampleInputPassword"
                                     placeholder="Confirm Password"
-                                    name="password_confirmation" required
+                                    name="password_confirmation"
                                     autocomplete="new-password"
                                 />
                             </div>
+                            @error('password_confirmation')
+                                <span class="text-danger" >
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                        <div class="my-2 d-flex justify-content-between align-items-center">
+
+                        {{-- <div class="my-2 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center justify-content-center gap-2 form-check">
                                 <input
                                     class="form-check-input m-0"
@@ -183,16 +202,12 @@
                                     Keep me signed in
                                 </label>
                             </div>
-                            <a href="#" class="auth-link text-black"
-                            >Forgot password?</a
-                            >
-                        </div>
+                        </div> --}}
                         <div class="my-3">
                             <button type="submit"
-                            class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn text-white"
-
-                            >Submit</button
-                            >
+                            class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn text-white">
+                            Submit
+                            </button>
                         </div>
 
                     </form>

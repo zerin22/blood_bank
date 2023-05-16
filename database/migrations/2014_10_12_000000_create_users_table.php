@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('age')->nullable();
             $table->string('gender')->nullable();
             $table->string('address')->nullable();
+            $table->string('nid')->nullable();
             $table->enum('role',['admin', 'hospital', 'user'])->default('user')->comment('admin, hospital, user');
             $table->string('status')->default('active');
             $table->rememberToken();
