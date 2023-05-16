@@ -29,10 +29,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if($request->user()->role == 'admin')
+        $url = '';
+
+        if(Auth()->user()->role == 'admin')
         {
             $url = '/admin/dashboard';
-        }else{
+        }
+        elseif(Auth()->user()->role == 'hospital')
+        {
+            $url = '/hospital/dashboard';
+        }
+        else
+        {
             $url = '/dashboard';
         }
 

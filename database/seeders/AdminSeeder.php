@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::truncate();
-        User::insert(
+        User::insert([
             //Admin
             [
                 'name' => 'Admin',
@@ -23,6 +23,15 @@ class AdminSeeder extends Seeder
                 'password' => Hash::make('admin@gmail.com'),
                 'role' => 'admin',
                 'status' => 'active'
-            ]);
+            ],
+                // for event role check
+            [
+                'name' => 'Hospital',
+                'email' => 'hospital@gmail.com',
+                'password' => Hash::make('hospital@gmail.com'),
+                'role' => 'hospital',
+                'status' => 'active'
+            ]
+        ]);
     }
 }
