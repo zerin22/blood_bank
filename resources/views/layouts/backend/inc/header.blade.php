@@ -29,4 +29,12 @@
     <link rel="stylesheet" href="{{ asset('backend') }}/css/custom.css" />
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('backend') }}/images/favicon.png" />
+    <style>
+        .profile_rounded{
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+            margin-bottom: 30px;
+        }
+    </style>
   </head>

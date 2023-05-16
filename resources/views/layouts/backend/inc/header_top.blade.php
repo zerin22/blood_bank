@@ -183,7 +183,7 @@
                 data-bs-toggle="dropdown"
                 id="profileDropdown"
                 >
-                <img src="{{ asset('backend') }}/images/faces/face5.jpg" alt="profile" />
+                <img src="{{ asset('backend') }}/images/faces/face10.jpg" alt="profile" />
                 <span class="nav-profile-name">Louis Barnett</span>
                 <i class="fa-solid fa-chevron-down"></i>
                 </a>
@@ -191,9 +191,9 @@
                 class="dropdown-menu dropdown-menu-right navbar-dropdown"
                 aria-labelledby="profileDropdown"
                 >
-                <a class="dropdown-item">
+                <a href="{{ route('profile.index') }}" class="dropdown-item">
                     <i class="mdi mdi-settings text-primary"></i>
-                    Settings
+                   profile
                 </a>
                 <a class="dropdown-item" href="route('admin.logout')"
                 onclick="event.preventDefault();

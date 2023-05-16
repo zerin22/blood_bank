@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminProfileController as AdminAdminProfileController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Hospital\HospitalController;
 use App\Http\Controllers\ProfileController;
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']],function()
     Route::get('dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::post('logout', [AdminController::class, 'adminDestroy'])
                 ->name('admin.logout');
+    Route::resource('profile', AdminAdminProfileController::class);
 });
 
 Route::group(['prefix' => 'hospital', 'middleware' => ['auth', 'hospital']],function(){
